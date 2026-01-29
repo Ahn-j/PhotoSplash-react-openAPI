@@ -1,19 +1,20 @@
-// import { useSetRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import styles from "./CommonHeader.module.scss";
-// import navStyles from "../navigation/CommonNavi.module.scss";
-// import { pageState } from "@/recoil/atoms/pageState";
-// import { searchState } from "@/recoil/atoms/searchState";
+import { pageState } from "@/recoil/atoms/pageState";
+import { searchState } from "@/recoil/atoms/searchState";
 import { useNavigate } from "react-router-dom";
 
 function CommonHeader() {
   const navigate = useNavigate();
-  // const setPage = useSetRecoilState(pageState);
-  // const setSearch = useSetRecoilState(searchState);
+  const setPage = useSetRecoilState(pageState);
+  const setSearch = useSetRecoilState(searchState);
 
   // 북마크 페이지로 이동
   const moveToPage = (filter: string) => {
     if (filter === "main") {
       navigate("/");
+      setSearch("korea");
+      setPage(1);
     } else {
       navigate("/bookmark");
     }

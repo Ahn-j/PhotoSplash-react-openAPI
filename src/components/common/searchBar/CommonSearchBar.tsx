@@ -7,6 +7,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 function CommonSearchBar() {
   const location = useLocation();
+  console.log("location in searchBar : ", location);
   const navigate = useNavigate();
   const setSearch = useSetRecoilState(searchState);
   const setPage = useSetRecoilState(pageState);

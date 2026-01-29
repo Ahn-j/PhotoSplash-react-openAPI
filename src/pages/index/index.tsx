@@ -11,6 +11,8 @@ import { useMemo, useState } from "react";
 import { useRecoilValueLoadable } from "recoil";
 import { imageData } from "@/recoil/selectors/imageSelectors";
 import Loading from "./components/Loading";
+import { Link } from "react-router-dom";
+import CommonBreadcrumbs from "@/components/common/breadcrumbs/CommonBreadcrumbs";
 
 function Index() {
   const imgSelector = useRecoilValueLoadable(imageData);
@@ -83,6 +85,8 @@ function Index() {
       <div className={styles.page}>
         {/* 공통 헤더 UI 부분 */}
         <CommonHeader />
+        {/* breadcrumbs */}
+        <CommonBreadcrumbs />
         {/* 공통 네비게이션 UI 부분 */}
         <CommonNavi />
         <div className={styles.page__contents}>
